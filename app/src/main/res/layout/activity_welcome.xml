@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9F4">
+
+
+    <View
+        android:id="@+id/decorCircleTop"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:background="#E8F5EE"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="-80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Vòng tròn nhỏ góc trái trên -->
+    <View
+        android:id="@+id/decorCircleSmall"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="#E8F5EE"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ══════════════════════════════════════════
+         LOGO + TAGLINE (vùng trên)
+    ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/logoSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Logo với viền tròn nền trắng -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:cardCornerRadius="55dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tên app -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BioCare"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="#0F2D1F"
+            android:letterSpacing="0.02"
+            android:layout_marginTop="18dp" />
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đồng hành sức khỏe mỗi ngày"
+            android:textSize="13sp"
+            android:textColor="#3D7A5A"
+            android:letterSpacing="0.04"
+            android:layout_marginTop="6dp" />
+
+    </LinearLayout>
+
+    <!-- Banner-->
+
+    <!-- ══════════════════════════════════════════
+         3 FEATURE HIGHLIGHTS
+    ══════════════════════════════════════════ -->
+    <ImageView
+        android:id="@+id/imgWelcomeBanner"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_welcome_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoSection" />
+
+    <LinearLayout
+        android:id="@+id/featuresSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgWelcomeBanner">
+
+        <!-- Feature 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#E8F5EE"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_heart" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Theo dõi\nsức khỏe"
+                android:textSize="11sp"
+                android:textColor="#2E5E40"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Divider dọc -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="#C8DDD3"
+            android:layout_gravity="center_vertical" />
+
+        <!-- Feature 2 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#E8F5EE"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_phantich"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phân tích\nchỉ số"
+                android:textSize="11sp"
+                android:textColor="#2E5E40"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Divider dọc -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="#C8DDD3"
+            android:layout_gravity="center_vertical" />
+
+        <!-- Feature 3 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#E8F5EE"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="#E8F5EE"
+                    android:src="@drawable/ic_nhacnho"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhắc nhở\nthông minh"
+                android:textSize="11sp"
+                android:textColor="#2E5E40"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════
+         BOTTOM CARD – CTA buttons
+    ══════════════════════════════════════════ -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Tiêu đề CTA -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bắt đầu ngay hôm nay"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0F2D1F"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chăm sóc sức khỏe chưa bao giờ dễ dàng hơn"
+                android:textSize="12sp"
+                android:textColor="#7A9E8A"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:id="@+id/btnGetStarted"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Bắt đầu ngay thôi!"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2E8B57"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="12dp" />
+
+
+            <!-- Tiếp tục không đăng nhập -->
+            <TextView
+                android:id="@+id/tvSkip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sử dụng ngay thôi nào"
+                android:textSize="12sp"
+                android:textColor="#3D7A5A"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- -->
+    <View
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:background="#E8F5EE"
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F7F5">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="32dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ══ HEADER ══ -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#1B5E20">
+
+                <!-- Vòng trang trí -->
+                <View
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="-50dp"
+                    android:layout_marginBottom="-50dp"
+                    android:background="@drawable/bg_circle_white_alpha"
+                    android:alpha="0.07" />
+
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="-20dp"
+                    android:background="@drawable/bg_circle_white_alpha"
+                    android:alpha="0.05" />
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_circle_white_alpha"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MỤC TIÊU SỨC KHOẺ"
+                        android:textColor="#A5D6A7"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.2"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mục tiêu của tôi"
+                        android:textColor="#FFFFFF"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thiết lập hành trình sức khoẻ của bạn"
+                        android:textColor="#A5D6A7"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ══ THÔNG SỐ CƠ THỂ ══ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="-28dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <!-- Tiêu đề card -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="14dp">
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="16dp"
+                            android:background="#2E8B57"
+                            android:layout_marginEnd="8dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chỉ số hiện tại của bạn"
+                            android:textColor="#1B5E20"
+                            android:textSize="13sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- 3 chỉ số -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- BMI -->
+                        <LinearLayout android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="#F2FBF5"
+                            android:padding="10dp">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BMI"
+                                android:textColor="#9DBFAE" android:textSize="10sp"
+                                android:textStyle="bold"/>
+                            <TextView android:id="@+id/tvMetricBmi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="#0F2D1F"
+                                android:textSize="26sp" android:textStyle="bold"
+                                android:layout_marginTop="2dp"/>
+                            <TextView android:id="@+id/tvMetricBmiCat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="#2E8B57" android:textSize="10sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <View android:layout_width="1dp" android:layout_height="70dp"
+                            android:background="#E0EDEA"
+                            android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_vertical"/>
+
+                        <!-- Cân nặng -->
+                        <LinearLayout android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⚖️"
+                                android:textSize="20sp"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cân nặng"
+                                android:textColor="#9DBFAE" android:textSize="10sp"
+                                android:layout_marginTop="2dp"/>
+                            <TextView android:id="@+id/tvMetricWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- kg"
+                                android:textColor="#0F2D1F"
+                                android:textSize="18sp" android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <View android:layout_width="1dp" android:layout_height="70dp"
+                            android:background="#E0EDEA"
+                            android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_vertical"/>
+
+                        <!-- Chiều cao -->
+                        <LinearLayout android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="📏"
+                                android:textSize="20sp"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chiều cao"
+                                android:textColor="#9DBFAE" android:textSize="10sp"
+                                android:layout_marginTop="2dp"/>
+                            <TextView android:id="@+id/tvMetricHeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- cm"
+                                android:textColor="#0F2D1F"
+                                android:textSize="18sp" android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- BMI mô tả -->
+                    <TextView
+                        android:id="@+id/tvBmiDisplay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:padding="10dp"
+                        android:background="#F2FBF5"
+                        android:text=""
+                        android:textColor="#2E8B57"
+                        android:textSize="11sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ProgressBar loading -->
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone"/>
+
+            <!-- ══════════════════════════════════════════════════ -->
+            <!--  FORM TẠO MỤC TIÊU                                -->
+            <!-- ══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/layoutForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- ── BƯỚC 1: Chọn mục tiêu ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="4dp">
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="#2E8B57"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bạn muốn đạt được gì?"
+                            android:textColor="#0F2D1F"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chọn mục tiêu phù hợp với bạn"
+                            android:textColor="#9DBFAE"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="12dp"
+                    android:background="#D5EAD8"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Row 1: Giảm cân + Tăng cân -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="10dp">
+
+                    <FrameLayout android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardGoalLose"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="#FFFFFF"
+                            android:clickable="true" android:focusable="true">
+                            <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center" android:padding="10dp">
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🔥" android:textSize="28sp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Giảm cân"
+                                    android:textColor="#0F2D1F" android:textSize="13sp"
+                                    android:textStyle="bold" android:layout_marginTop="6dp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Đốt mỡ hiệu quả"
+                                    android:textColor="#9DBFAE" android:textSize="10sp"
+                                    android:gravity="center" android:layout_marginTop="2dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <TextView android:id="@+id/badgeLose"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_gravity="top|end" android:layout_margin="6dp"
+                            android:text="✦ Gợi ý" android:textColor="#1B5E20" android:textSize="9sp"
+                            android:textStyle="bold" android:background="#A5D6A7"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="3dp" android:paddingBottom="3dp"
+                            android:visibility="gone"/>
+                    </FrameLayout>
+
+                    <FrameLayout android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardGoalGain"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="#FFFFFF"
+                            android:clickable="true" android:focusable="true">
+                            <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center" android:padding="10dp">
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="💪" android:textSize="28sp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tăng cân"
+                                    android:textColor="#0F2D1F" android:textSize="13sp"
+                                    android:textStyle="bold" android:layout_marginTop="6dp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tăng cơ bắp"
+                                    android:textColor="#9DBFAE" android:textSize="10sp"
+                                    android:gravity="center" android:layout_marginTop="2dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <TextView android:id="@+id/badgeGain"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_gravity="top|end" android:layout_margin="6dp"
+                            android:text="✦ Gợi ý" android:textColor="#1B5E20" android:textSize="9sp"
+                            android:textStyle="bold" android:background="#A5D6A7"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="3dp" android:paddingBottom="3dp"
+                            android:visibility="gone"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Row 2: Duy trì + Tăng cơ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="24dp">
+
+                    <FrameLayout android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardGoalMaintain"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="#FFFFFF"
+                            android:clickable="true" android:focusable="true">
+                            <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center" android:padding="10dp">
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="⚖️" android:textSize="28sp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Duy trì"
+                                    android:textColor="#0F2D1F" android:textSize="13sp"
+                                    android:textStyle="bold" android:layout_marginTop="6dp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Giữ vóc dáng"
+                                    android:textColor="#9DBFAE" android:textSize="10sp"
+                                    android:gravity="center" android:layout_marginTop="2dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <TextView android:id="@+id/badgeMaintain"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_gravity="top|end" android:layout_margin="6dp"
+                            android:text="✦ Gợi ý" android:textColor="#1B5E20" android:textSize="9sp"
+                            android:textStyle="bold" android:background="#A5D6A7"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="3dp" android:paddingBottom="3dp"
+                            android:visibility="gone"/>
+                    </FrameLayout>
+
+                    <FrameLayout android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardGoalMuscle"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="#FFFFFF"
+                            android:clickable="true" android:focusable="true">
+                            <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center" android:padding="10dp">
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="🏋️" android:textSize="28sp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tăng cơ"
+                                    android:textColor="#0F2D1F" android:textSize="13sp"
+                                    android:textStyle="bold" android:layout_marginTop="6dp"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sức mạnh cơ bắp"
+                                    android:textColor="#9DBFAE" android:textSize="10sp"
+                                    android:gravity="center" android:layout_marginTop="2dp"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <TextView android:id="@+id/badgeMuscle"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_gravity="top|end" android:layout_margin="6dp"
+                            android:text="✦ Gợi ý" android:textColor="#1B5E20" android:textSize="9sp"
+                            android:textStyle="bold" android:background="#A5D6A7"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="3dp" android:paddingBottom="3dp"
+                            android:visibility="gone"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- ── BƯỚC 2: Cân nặng mục tiêu ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="4dp">
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="#2E8B57"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cân nặng mục tiêu"
+                            android:textColor="#0F2D1F"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nhập cân nặng bạn muốn đạt được"
+                            android:textColor="#9DBFAE"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="12dp"
+                    android:background="#D5EAD8"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="6dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#FFFFFF">
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎯" android:textSize="22sp"
+                            android:layout_marginEnd="12dp"/>
+                        <EditText
+                            android:id="@+id/etTargetWeight"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Nhập cân nặng mong muốn"
+                            android:textColorHint="#C0D4C8"
+                            android:textColor="#0F2D1F"
+                            android:textSize="16sp"
+                            android:inputType="numberDecimal"
+                            android:background="@android:color/transparent"
+                            android:maxLength="5"/>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="kg"
+                            android:textColor="#2E8B57" android:textSize="15sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvTargetWeightHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="24dp"
+                    android:padding="10dp"
+                    android:background="#F2FBF5"
+                    android:text=""
+                    android:textColor="#2E8B57"
+                    android:textSize="11sp"/>
+
+                <!-- ── BƯỚC 3: Chọn thời gian ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="4dp">
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="#2E8B57"
+                        android:layout_marginEnd="10dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thời gian để đạt mục tiêu"
+                            android:textColor="#0F2D1F"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chọn khoảng thời gian phù hợp"
+                            android:textColor="#9DBFAE"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="12dp"
+                    android:background="#D5EAD8"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Row 1 thời gian: 4 + 8 + 12 tuần -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="10dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTime4"
+                        android:layout_width="0dp" android:layout_height="88dp"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        android:clickable="true" android:focusable="true">
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4" android:textColor="#2E8B57"
+                                android:textSize="26sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="tuần" android:textColor="#9DBFAE"
+                                android:textSize="11sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTime8"
+                        android:layout_width="0dp" android:layout_height="88dp"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        android:clickable="true" android:focusable="true">
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8" android:textColor="#2E8B57"
+                                android:textSize="26sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="tuần" android:textColor="#9DBFAE"
+                                android:textSize="11sp"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="⭐ Phổ biến"
+                                android:textColor="#2E8B57" android:textSize="9sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTime12"
+                        android:layout_width="0dp" android:layout_height="88dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        android:clickable="true" android:focusable="true">
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12" android:textColor="#2E8B57"
+                                android:textSize="26sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="tuần" android:textColor="#9DBFAE"
+                                android:textSize="11sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- Row 2 thời gian: 16 + 24 tuần -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="20dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTime16"
+                        android:layout_width="0dp" android:layout_height="88dp"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        android:clickable="true" android:focusable="true">
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16" android:textColor="#2E8B57"
+                                android:textSize="26sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="tuần" android:textColor="#9DBFAE"
+                                android:textSize="11sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTime24"
+                        android:layout_width="0dp" android:layout_height="88dp"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        android:clickable="true" android:focusable="true">
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24" android:textColor="#2E8B57"
+                                android:textSize="26sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="tuần" android:textColor="#9DBFAE"
+                                android:textSize="11sp"/>
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌿 Bền vững"
+                                android:textColor="#9DBFAE" android:textSize="9sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <View android:layout_width="0dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <!-- ── Tốc độ tính toán ── -->
+                <TextView
+                    android:id="@+id/tvSpeedResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:padding="14dp"
+                    android:background="#E8F5E9"
+                    android:textColor="#1B5E20"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+                <!-- ── Cảnh báo ── -->
+                <LinearLayout
+                    android:id="@+id/warningBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#FFF8E1"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚠️" android:textSize="16sp"
+                            android:layout_marginEnd="8dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lưu ý cho lộ trình của bạn"
+                            android:textColor="#E65100"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvWarning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#BF360C"
+                        android:textSize="11sp"
+                        android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
+
+                <!-- ── Nút Lưu mục tiêu ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="36dp">
+                    <TextView
+                        android:id="@+id/btnSaveRoadmap"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:text="💾  Lưu mục tiêu"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_btn_green"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- END layoutForm -->
+
+            <!-- ══════════════════════════════════════════════════ -->
+            <!--  HIỂN THỊ MỤC TIÊU ĐÃ LƯU                        -->
+            <!-- ══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/layoutSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Card tóm tắt mục tiêu -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="#1B5E20">
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="22dp">
+
+                        <!-- Header card -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="18dp">
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✅" android:textSize="24sp"
+                                android:layout_marginEnd="10dp"/>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Mục tiêu đã được lưu!"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp" android:textStyle="bold"/>
+                                <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hành trình của bạn bắt đầu từ đây"
+                                    android:textColor="#A5D6A7"
+                                    android:textSize="11sp"
+                                    android:layout_marginTop="2dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Divider nhạt -->
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                            android:background="#2E7D32" android:layout_marginBottom="16dp"/>
+
+                        <!-- Mục tiêu -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🎯 Mục tiêu"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumGoal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Cân nặng hiện tại -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="⚖️ Cân nặng hiện tại"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumCurrentWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- kg"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Cân nặng mục tiêu -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🏁 Mục tiêu đạt được"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumTargetWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- kg"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Thời gian -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="📅 Thời gian"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumWeeks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-- tuần"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Tốc độ -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🚀 Tốc độ thay đổi"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumSpeed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- BMI -->
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="16dp">
+                            <TextView android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="📊 BMI hiện tại"
+                                android:textColor="#A5D6A7" android:textSize="13sp"/>
+                            <TextView android:id="@+id/tvSumBmi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:textColor="#FFFFFF" android:textSize="13sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View android:layout_width="match_parent" android:layout_height="1dp"
+                            android:background="#2E7D32" android:layout_marginBottom="14dp"/>
+
+                        <!-- Cảnh báo / an toàn -->
+                        <TextView
+                            android:id="@+id/tvSumWarning"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#A5D6A7"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="4dp"
+                            android:visibility="gone"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Nút chỉnh sửa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginBottom="36dp">
+                    <TextView
+                        android:id="@+id/btnEditRoadmap"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:text="✏️  Chỉnh sửa mục tiêu"
+                        android:textColor="#2E8B57"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_btn_outline_green"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- END layoutSummary -->
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

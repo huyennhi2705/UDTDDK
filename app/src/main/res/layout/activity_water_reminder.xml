@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDF7F0"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- ===== HEADER ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#155C3A"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="28dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/bg_circle_white_alpha"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💧 Nhắc Uống Nước"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hãy uống đủ nước mỗi ngày để sống khỏe hơn"
+                android:textSize="13sp"
+                android:textColor="#A8D5BE"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- ===== CONTENT AREA ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- === CARD 1: Lượng nước hôm nay === -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🥤 Lượng nước hôm nay"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#155C3A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mục tiêu hàng ngày: 2.0 lít"
+                        android:textSize="12sp"
+                        android:textColor="#78909C"
+                        android:layout_marginTop="2dp" />
+
+                    <EditText
+                        android:id="@+id/etWaterLiters"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Bạn đã uống bao nhiêu lít? (VD: 0.5)"
+                        android:inputType="numberDecimal"
+                        android:layout_marginTop="12dp"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:background="#F4F9F4"
+                        android:textColor="#1A1A1A"
+                        android:textColorHint="#AAAAAA"
+                        android:textSize="14sp" />
+
+                    <!-- Progress Bar Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical">
+
+                        <ProgressBar
+                            android:id="@+id/progressWater"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="14dp"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="#1A7A4A"
+                            android:progressBackgroundTint="#D4EDE1" />
+
+                        <TextView
+                            android:id="@+id/tvWaterProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0 / 2L"
+                            android:textSize="12sp"
+                            android:textColor="#546E7A"
+                            android:textStyle="bold"
+                            android:layout_marginStart="10dp"
+                            android:minWidth="60dp" />
+                    </LinearLayout>
+
+                    <!-- Warning Box -->
+                    <TextView
+                        android:id="@+id/tvWaterWarning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:textSize="13sp"
+                        android:lineSpacingMultiplier="1.4"
+                        android:layout_marginTop="12dp"
+                        android:padding="12dp"
+                        android:background="#FFF8E1"
+                        android:textColor="#E65100" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- === CARD 2: Cài đặt nhắc nhở === -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏱️ Cài Đặt Nhắc Nhở"
+                        android:textColor="#155C3A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <!-- Interval Input -->
+                    <EditText
+                        android:id="@+id/etWaterInterval"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="12dp"
+                        android:background="#F4F9F4"
+                        android:hint="Nhắc mỗi mấy tiếng? (VD: 1.5)"
+                        android:inputType="numberDecimal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:textColor="#1A1A1A"
+                        android:textColorHint="#AAAAAA"
+                        android:textSize="14sp" />
+
+                    <!-- Quick Interval Chips -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="⚡ Chọn nhanh:"
+                        android:textColor="#78909C"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn30min"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="30 phút"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btn1h"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="1 tiếng"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btn2h"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="2 tiếng"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btn3h"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="3 tiếng"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#EEEEEE" />
+
+                    <!-- Wake Time Picker -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏰ Giờ bắt đầu nhắc"
+                        android:textColor="#546E7A"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnPickWakeTime"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#D4EDE1"
+                            android:text="Chọn giờ"
+                            android:textColor="#155C3A"
+                            android:textSize="13sp"
+                            app:cornerRadius="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvWakeTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="06:00"
+                            android:textColor="#155C3A"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Time / Interval Warning + Suggestion -->
+                    <TextView
+                        android:id="@+id/tvTimeSuggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="#E3F2FD"
+                        android:lineSpacingMultiplier="1.4"
+                        android:padding="12dp"
+                        android:textColor="#1565C0"
+                        android:textSize="13sp"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#EEEEEE" />
+
+                    <TextView
+                        android:id="@+id/tvLeadTimeLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="⏱️ Nhắc trước bao nhiêu phút?"
+                        android:textColor="#546E7A"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnLead15"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#155C3A"
+                            android:text="15 phút"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btnLead30"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="30 phút"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btnLead45"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="45 phút"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+
+                        <Button
+                            android:id="@+id/btnLead60"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="#E8F5E9"
+                            android:text="60 phút"
+                            android:textColor="#155C3A"
+                            android:textSize="11sp"
+                            app:cornerRadius="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- === CARD 3: Lịch uống nước gợi ý === -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAdvice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📋 Lịch Uống Nước Gợi Ý"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#155C3A" />
+
+                    <TextView
+                        android:id="@+id/tvWaterAdvice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#37474F"
+                        android:textSize="13sp"
+                        android:lineSpacingMultiplier="1.6"
+                        android:layout_marginTop="10dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- === ACTION BUTTONS === -->
+
+            <!-- Set Reminder Button -->
+            <Button
+                android:id="@+id/btnSetWaterReminder"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="💧  Đặt Nhắc Uống Nước"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#155C3A"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="16dp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Cancel Reminder Button -->
+            <Button
+                android:id="@+id/btnCancelReminder"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="🚫  Hủy Nhắc Nhở"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#FFEBEE"
+                android:textColor="#B71C1C"
+                app:cornerRadius="16dp" />
+
+            <!-- Status label -->
+            <TextView
+                android:id="@+id/tvReminderStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="13sp"
+                android:textColor="#78909C"
+                android:gravity="center"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

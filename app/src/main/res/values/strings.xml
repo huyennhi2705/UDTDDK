@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BIOCARE - ỨNG DỤNG THEO DÕI SỨC KHỎE </string>
+    <string name="login_title">Đăng nhập</string>
+    <string name="email_hint">you@gmail.com </string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="start_health_journey">Bắt đầu hành trình sức khỏe của bạn</string>
+    <string name="no_account">Bạn chưa có tài khoản?</string>
+    <string name="signup">Đăng ký</string>
+    <string name="create_account">Tạo tài khoản mới</string>
+    <string name="email_icon">Icon Email</string>
+    <string name="lock_icon">Icon Mật khẩu</string>
+    <string name="eye_icon">Hiển thị / Ẩn mật khẩu</string>
+    <string name="heart_icon">Icon Trái tim</string>
+    <string name="logo_desc">Logo của công ty</string>
+</resources>

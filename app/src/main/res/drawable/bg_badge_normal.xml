@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/bg_badge_normal.xml  (trạng thái Bình thường – xanh) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" />
+    <solid android:color="#E8F5EE" />
+</shape>
+
+    <!-- ─── Tạo thêm 3 file badge theo trạng thái BMI ───
+
+      bg_badge_underweight.xml  → solid #FCEBEB  (đỏ nhạt)
+      bg_badge_overweight.xml   → solid #FAEEDA  (cam nhạt)
+      bg_badge_obese.xml        → solid #FCEBEB  (đỏ nhạt)
+
+      Chỉ cần thay màu solid, giữ nguyên corners 20dp.
+    -->

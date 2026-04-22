@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182087340975",
+    "project_id": "udtddk",
+    "storage_bucket": "udtddk.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182087340975:android:d5e5ea5b1a795645e7555a",
+        "android_client_info": {
+          "package_name": "com.example.udtddk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHjHC_chwaKwqfHrYQ7NBR16QTYZQobmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F9F4"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <!-- ══ NÚT QUAY LẠI ══ -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_arrow_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ══ LOGO ══ -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ══ APP TITLE ══ -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="BIOCARE – ỨNG DỤNG THEO DÕI SỨC KHỎE"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#1A6B3C"
+            android:letterSpacing="0.03"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <!-- ══ FORM CARD ══ -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/formCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="18dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Tiêu đề form -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Tạo tài khoản"
+                    android:textColor="#0F2D1F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Điền thông tin bên dưới để bắt đầu"
+                    android:textColor="#7A9E8A"
+                    android:textSize="12sp" />
+
+                <!-- ══ HỌ VÀ TÊN ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Họ và tên"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_person" />
+
+                    <EditText
+                        android:id="@+id/etFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="Nguyễn Văn A"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName|textCapWords"
+                        android:paddingStart="46dp"
+                        android:paddingEnd="14dp"
+                        android:singleLine="true"
+                        android:textColor="#0F2D1F"
+                        android:textColorHint="#A0B8AA"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <!-- ══ EMAIL ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Email"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/emailContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_email" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="you@example.com"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="46dp"
+                        android:paddingEnd="14dp"
+                        android:singleLine="true"
+                        android:textColor="#0F2D1F"
+                        android:textColorHint="#A0B8AA"
+                        android:textSize="14sp" />
+
+
+
+
+                </FrameLayout>
+
+                <!-- ══ NGÀY SINH ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Ngày sinh"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/dobContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_input_field"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_calendar" />
+
+                    <TextView
+                        android:id="@+id/tvDateOfBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingStart="46dp"
+                        android:paddingEnd="14dp"
+                        android:text="DD / MM / YYYY"
+                        android:textColor="#A0B8AA"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <!-- ══ GIỚI TÍNH ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Giới tính"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/rgGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbMale"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gender_option"
+                        android:buttonTint="#2E8B57"
+                        android:gravity="center"
+                        android:text="Nam"
+                        android:textColor="#0F2D1F"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemale"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gender_option"
+                        android:buttonTint="#2E8B57"
+                        android:gravity="center"
+                        android:text="Nữ"
+                        android:textColor="#0F2D1F"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbOther"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gender_option"
+                        android:buttonTint="#2E8B57"
+                        android:gravity="center"
+                        android:text="Khác"
+                        android:textColor="#0F2D1F"
+                        android:textSize="13sp" />
+                </RadioGroup>
+
+                <!-- ══ THÔNG SỐ CƠ THỂ ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Chỉ số cơ thể"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <!-- Cân nặng -->
+                    <FrameLayout
+                        android:id="@+id/weightContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_input_field">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="14dp"
+                            android:src="@drawable/ic_weight" />
+
+                        <EditText
+                            android:id="@+id/etWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="kg"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="46dp"
+                            android:paddingEnd="14dp"
+                            android:singleLine="true"
+                            android:textColor="#0F2D1F"
+                            android:textColorHint="#A0B8AA"
+                            android:textSize="14sp" />
+                    </FrameLayout>
+
+                    <!-- Chiều cao -->
+                    <FrameLayout
+                        android:id="@+id/heightContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="52dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_input_field">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="14dp"
+                            android:src="@drawable/ic_height" />
+
+                        <EditText
+                            android:id="@+id/etHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:hint="cm"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="46dp"
+                            android:paddingEnd="14dp"
+                            android:singleLine="true"
+                            android:textColor="#0F2D1F"
+                            android:textColorHint="#A0B8AA"
+                            android:textSize="14sp" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- ══ MẬT KHẨU ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Mật khẩu"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/passwordContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_lock" />
+
+                    <!-- EditText mật khẩu đặt đúng trong passwordContainer -->
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="Tối thiểu 6 ký tự"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:paddingStart="46dp"
+                        android:paddingEnd="46dp"
+                        android:singleLine="true"
+                        android:textColor="#0F2D1F"
+                        android:textColorHint="#A0B8AA"
+                        android:textSize="14sp" />
+
+                    <!-- Icon toggle ẩn/hiện -->
+                    <ImageView
+                        android:id="@+id/btnTogglePassword"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginEnd="14dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/ic_eye_off" />
+                </FrameLayout>
+
+                <!-- Password strength bar -->
+                <LinearLayout
+                    android:id="@+id/strengthBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <View android:id="@+id/strengthBar1"
+                        android:layout_width="0dp" android:layout_height="4dp"
+                        android:layout_weight="1" android:layout_marginEnd="3dp"
+                        android:background="#E0EDE5" />
+                    <View android:id="@+id/strengthBar2"
+                        android:layout_width="0dp" android:layout_height="4dp"
+                        android:layout_weight="1" android:layout_marginEnd="3dp"
+                        android:background="#E0EDE5" />
+                    <View android:id="@+id/strengthBar3"
+                        android:layout_width="0dp" android:layout_height="4dp"
+                        android:layout_weight="1" android:layout_marginEnd="3dp"
+                        android:background="#E0EDE5" />
+                    <View android:id="@+id/strengthBar4"
+                        android:layout_width="0dp" android:layout_height="4dp"
+                        android:layout_weight="1"
+                        android:background="#E0EDE5" />
+                </LinearLayout>
+
+                <!-- ══ XÁC NHẬN MẬT KHẨU ══ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="Xác nhận mật khẩu"
+                    android:textColor="#3D7A5A"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/confirmPasswordContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_input_field">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/ic_lock" />
+
+                    <EditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="Nhập lại mật khẩu"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:paddingStart="46dp"
+                        android:paddingEnd="46dp"
+                        android:singleLine="true"
+                        android:textColor="#0F2D1F"
+                        android:textColorHint="#A0B8AA"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/btnToggleConfirmPassword"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginEnd="14dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/ic_eye_off" />
+                </FrameLayout>
+
+                <!-- ══ CHECKBOX ĐIỀU KHOẢN ══ -->
+                <LinearLayout
+                    android:id="@+id/termsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cbTerms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:buttonTint="#2E8B57" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tôi đồng ý với "
+                        android:textColor="#2E5E40"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTerms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Điều khoản sử dụng"
+                        android:textColor="#0A8A3C"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" &amp; "
+                        android:textColor="#2E5E40"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvPrivacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Chính sách"
+                        android:textColor="#0A8A3C"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ══ NÚT ĐĂNG KÝ ══ -->
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:backgroundTint="#2E8B57"
+                    android:stateListAnimator="@null"
+                    android:text="Tạo tài khoản"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ══ FOOTER ══ -->
+        <LinearLayout
+            android:id="@+id/loginSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/formCard">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_heart"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sức khỏe của bạn là ưu tiên của chúng tôi"
+                    android:textSize="12sp"
+                    android:textColor="#1A6B3C"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn đã có tài khoản?  "
+                    android:textSize="14sp"
+                    android:textColor="#2E5E40" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng nhập"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#0A8A3C"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+

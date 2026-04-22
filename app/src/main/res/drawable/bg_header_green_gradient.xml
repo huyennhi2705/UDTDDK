@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Bo góc dưới cho header -->
+    <corners
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp" />
+
+    <!-- Gradient màu xanh -->
+    <gradient
+        android:angle="270"
+        android:startColor="#26762A"
+        android:endColor="#1B591C"
+        android:type="linear" />
+
+</shape>

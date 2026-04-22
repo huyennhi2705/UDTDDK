@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Màu nền đỏ (Admin) -->
+    <solid android:color="#F44336"/>
+
+    <!-- Bo góc mềm -->
+    <corners android:radius="12dp"/>
+
+    <!-- Viền nhẹ cho đẹp -->
+    <stroke
+        android:width="1dp"
+        android:color="#D32F2F"/>
+
+    <!-- Padding bên trong -->
+    <padding
+        android:left="8dp"
+        android:top="4dp"
+        android:right="8dp"
+        android:bottom="4dp"/>
+
+</shape>
