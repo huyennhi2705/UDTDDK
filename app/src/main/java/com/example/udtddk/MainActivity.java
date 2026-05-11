@@ -102,7 +102,7 @@ public class MainActivity extends BaseActivity {
                     ? heightStr.replaceAll("\\.?0+$", "")
                     : heightStr);
 
-         // Lưu CSDL
+            // Lưu CSDL
             updateUserBody(weight, height);
 
             Toast.makeText(this, "Đã cập nhật chỉ số!", Toast.LENGTH_SHORT).show();
@@ -112,7 +112,7 @@ public class MainActivity extends BaseActivity {
         String finalUserId = userId;
         btnNotification.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
-            intent.putExtra("NguoiDungId", finalUserId);
+            intent.putExtra("userId", finalUserId);
             startActivity(intent);
         });
         // Bottom nav
@@ -122,7 +122,7 @@ public class MainActivity extends BaseActivity {
         String finalUserId1 = userId;
         findViewById(R.id.btnOpenChat).setOnClickListener(v -> {
             Intent intent = new Intent(this, ChatActivity.class);
-            intent.putExtra("NguoiDungId", finalUserId1);
+            intent.putExtra("userId", finalUserId1);
             intent.putExtra("BMI", currentBmi);
             startActivity(intent);
         });
@@ -131,7 +131,7 @@ public class MainActivity extends BaseActivity {
         String finalUserId2 = userId;
         tvAvatar.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-            intent.putExtra("NguoiDungId", finalUserId2);
+            intent.putExtra("userId", finalUserId2);
             startActivity(intent);
         });
         FirebaseMessaging.getInstance().getToken()
@@ -176,7 +176,7 @@ public class MainActivity extends BaseActivity {
 
                 // Lấy dữ liệu từ Firebase
                 String username = snapshot.child("HoTen").getValue(String.class);
-              //  String fullName = snapshot.child("fullName").getValue(String.class);
+                //  String fullName = snapshot.child("fullName").getValue(String.class);
                 String email    = snapshot.child("Email").getValue(String.class);
                 String dob      = snapshot.child("NgaySinh").getValue(String.class);
 
@@ -201,9 +201,9 @@ public class MainActivity extends BaseActivity {
 //
                 String avatarText = "U";
                 //if (!TextUtils.isEmpty(fullName)) {
-               //     avatarText = fullName.substring(0, 1).toUpperCase();
+                //     avatarText = fullName.substring(0, 1).toUpperCase();
                 //}
-                 if (!TextUtils.isEmpty(username)) {
+                if (!TextUtils.isEmpty(username)) {
                     avatarText = username.substring(0, 1).toUpperCase();
                 } else if (!TextUtils.isEmpty(email)) {
                     avatarText = email.substring(0, 1).toUpperCase();
@@ -305,7 +305,7 @@ public class MainActivity extends BaseActivity {
                 evalDesc = "Chỉ số BMI " + String.format(Locale.getDefault(), "%.1f", bmi)
                         + " cao hơn ngưỡng lý tưởng (18.5–24.9). Hãy tập luyện và ăn uống khoa học.";
             }
-                else {
+            else {
                 bmiStatus = "Béo phì";
                 whoClass = "Béo phì";
                 evalTitle = "Cẩn thận, bạn bị béo phì!";

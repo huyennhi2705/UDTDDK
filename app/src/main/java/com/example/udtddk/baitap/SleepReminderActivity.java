@@ -77,6 +77,17 @@ public class SleepReminderActivity extends AppCompatActivity {
         applyLeadTimeUI(reminderBeforeMinutes);
         updateSleepDisplay();
         loadFromHealthMetrics();
+        userId = getIntent().getStringExtra("NguoiDungId");
+
+        if (userId == null || userId.isEmpty()) {
+            userId = getSharedPreferences("USER", MODE_PRIVATE)
+                    .getString("NguoiDungId", null);
+        }
+        if (userId == null || userId.isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy user", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
     }
 
 
@@ -388,6 +399,7 @@ public class SleepReminderActivity extends AppCompatActivity {
     }
 
     // FIX: hàm lưu xác nhận vào Firebase thong_bao
+    // ── THAY THẾ toàn bộ saveConfirmToThongBao ────────────────────────────────
     private void saveConfirmToThongBao(String title, String body, String type) {
         if (userId == null || userId.isEmpty()) return;
         try {
@@ -399,10 +411,12 @@ public class SleepReminderActivity extends AppCompatActivity {
             record.put("date",
                     new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
                             .format(new java.util.Date()));
+
+            // ✅ PATH ĐÚNG — thống nhất với WaterReminder và HistoryActivity
             FirebaseDatabase.getInstance("https://udtddk-default-rtdb.firebaseio.com/")
-                    .getReference("nguoi_dung")
+                    .getReference("NguoiDung")          // ← sửa "nguoi_dung" → "NguoiDung"
                     .child(userId)
-                    .child("lich_su")
+                    .child("LicSuMucTieu")              // ← sửa "lich_su" → "LicSuMucTieu"
                     .child("thong_bao")
                     .push()
                     .setValue(record);

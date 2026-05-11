@@ -87,7 +87,7 @@ public class HistoryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        userId     = getIntent().getStringExtra("NguoiDungId");
+        userId = getIntent().getStringExtra("userId");
         currentBmi = getIntent().getFloatExtra("BMI", 0f);
 
 
@@ -100,10 +100,10 @@ public class HistoryActivity extends BaseActivity {
 
         db = FirebaseDatabase
                 .getInstance("https://udtddk-default-rtdb.firebaseio.com/")
-                .getReference("NguoIDung")
+                .getReference("NguoiDung")      // ← "NguoiDung" hoa
                 .child(userId)
-                .child("LicSuMucTieu");
-
+                .child("LicSuMucTieu");         // ← "LicSuMucTieu" đúng với JSON
+        db.child("chat");
         tabChat .setOnClickListener(v -> switchTab(true));
         tabNotif.setOnClickListener(v -> switchTab(false));
 

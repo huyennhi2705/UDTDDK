@@ -23,6 +23,7 @@ import androidx.core.app.NotificationCompat;
 import com.example.udtddk.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -76,6 +77,17 @@ public class WaterReminderActivity extends AppCompatActivity {
         applyLeadTimeUI(leadTimeMinutes);
         updateAll();
         loadFromHealthMetrics();
+        userId = getIntent().getStringExtra("NguoiDungId");
+
+        if (userId == null || userId.isEmpty()) {
+            userId = getSharedPreferences("USER", MODE_PRIVATE)
+                    .getString("NguoiDungId", null);
+        }
+        if (userId == null || userId.isEmpty()) {
+            Toast.makeText(this, "Không tìm thấy user", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
     }
 
     // ── Bind views ─────────────────────────────────────────────────────────────
@@ -135,6 +147,7 @@ public class WaterReminderActivity extends AppCompatActivity {
         etWaterInterval.addTextChangedListener(watcher);
 
         btnSetWaterReminder.setOnClickListener(v -> onSetReminder());
+
         btnCancelReminder  .setOnClickListener(v -> onCancelReminder());
     }
 
@@ -419,11 +432,13 @@ public class WaterReminderActivity extends AppCompatActivity {
             record.put("date",
                     new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
                             .format(new java.util.Date()));
-            FirebaseDatabase.getInstance("https://udtddk-default-rtdb.firebaseio.com/")
-                    .getReference("NguoiDung")
-                    .child(userId)
-                    .child("NhacNho")
 
+            // ✅ PATH ĐÚNG theo JSON thực tế: NguoiDung/{userId}/LicSuMucTieu/thong_bao
+            FirebaseDatabase.getInstance("https://udtddk-default-rtdb.firebaseio.com/")
+                    .getReference("NguoiDung")          // ← chữ N hoa, đúng với DB
+                    .child(userId)
+                    .child("LicSuMucTieu")              // ← đúng với JSON
+                    .child("thong_bao")
                     .push()
                     .setValue(record);
         } catch (Exception e) {
