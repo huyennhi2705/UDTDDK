@@ -24,7 +24,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
-
+    // test git
     private TextView tvUserName, tvWeight, tvHeight, tvAge, tvAvatar, tvBmiValue, tvBmiStatus;
     private EditText etWeightInput, etHeightInput;
     private ImageView btnNotification;
