@@ -21,6 +21,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.NotificationCompat;
 
 import com.example.udtddk.R;
+import com.example.udtddk.history.HistoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -391,7 +392,7 @@ public class WaterReminderActivity extends AppCompatActivity {
 
 
     private void showConfirmationNotification(float remain, float intervalHours) {
-        Intent tapIntent = new Intent(this, WaterReminderActivity.class);
+        Intent tapIntent = new Intent(this, HistoryActivity.class);
         tapIntent.putExtra("userId", userId);
         PendingIntent tapPi = PendingIntent.getActivity(this, 0, tapIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
