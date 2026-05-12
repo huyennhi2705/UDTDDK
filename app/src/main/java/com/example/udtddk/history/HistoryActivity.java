@@ -79,6 +79,8 @@ public class HistoryActivity extends BaseActivity {
     private static final String C_AI_PALE       = "#ECFDF5";
     private static final String C_DELETE_RED    = "#EF4444";
     private static final String C_DELETE_PALE   = "#FEF2F2";
+    private DatabaseReference dbNotif;
+    private DatabaseReference dbChat;
 
     // ══════════════════════════════════════════════════════════════════════════
 
@@ -98,14 +100,14 @@ public class HistoryActivity extends BaseActivity {
         bindViews();
         setupBottomNav(R.id.nav_history);
 
-        db = FirebaseDatabase
+        DatabaseReference base = FirebaseDatabase
                 .getInstance("https://udtddk-default-rtdb.firebaseio.com/")
-                .getReference("NguoiDung")      // ← "NguoiDung" hoa
+                .getReference("NguoiDung")
                 .child(userId)
-                .child("LicSuMucTieu");         // ← "LicSuMucTieu" đúng với JSON
-        db.child("chat");
-        tabChat .setOnClickListener(v -> switchTab(true));
-        tabNotif.setOnClickListener(v -> switchTab(false));
+                .child("LicSuMucTieu");
+
+        dbNotif = base.child("thong_bao");  // ✅ cho tab Thông báo
+        dbChat  = base.child("chat");       // ✅ cho tab Chat
 
         // FIX: mở mặc định tab Thông báo, không phải Chat
         switchTab(false);
@@ -154,7 +156,7 @@ public class HistoryActivity extends BaseActivity {
 
     private void loadChatHistory() {
         showLoading();
-        db.child("chat").orderByChild("timestamp").limitToLast(50)
+        dbChat.orderByChild("timestamp").limitToLast(50)  // ✅ dùng dbChat
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snap) {
@@ -183,14 +185,11 @@ public class HistoryActivity extends BaseActivity {
 
     private void loadNotifHistory() {
         showLoading();
-
-        // FIX: guard khi userId rỗng
         if (userId == null || userId.isEmpty()) {
-            showEmpty("⚠️", "Chưa đăng nhập", "Vui lòng đăng nhập để xem lịch sử thông báo");
+            showEmpty("⚠️", "Chưa đăng nhập", "Vui lòng đăng nhập");
             return;
         }
-
-        db.child("thong_bao").orderByChild("timestamp").limitToLast(50)
+        dbNotif.orderByChild("timestamp").limitToLast(50)  // ✅ dùng dbNotif
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snap) {
@@ -567,7 +566,7 @@ public class HistoryActivity extends BaseActivity {
                 listContainer.removeView(card);
                 // FIX: chỉ xoá nếu key hợp lệ
                 if (key != null && !key.isEmpty())
-                    db.child("thong_bao").child(key).removeValue();
+                    dbNotif.child(key).removeValue();
                 if (listContainer.getChildCount() == 0)
                     showEmpty("🗑️", "Đã xóa tất cả thông báo",
                             "Không còn thông báo nào trong lịch sử");

@@ -50,7 +50,7 @@ public class ChatActivity extends BaseActivity {
 
     // ✅ URL Gemini (gemini-2.0-flash là model mới nhất, miễn phí)
     private static final String GEMINI_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-flash:generateContent?key=";
 
     private static final String SYSTEM_PROMPT =
             "Bạn là trợ lý sức khoẻ BioCare. Chỉ trả lời các câu hỏi liên quan đến sức khoẻ, "
@@ -101,11 +101,13 @@ public class ChatActivity extends BaseActivity {
         if (!"guest".equals(userId)) {
             dbHistory = FirebaseDatabase
                     .getInstance("https://udtddk-default-rtdb.firebaseio.com/")
-                    .getReference("nguoi_dung")
+                    .getReference("NguoiDung")    // ✅ đúng tên
                     .child(userId)
-                    .child("lich_su")
+                    .child("LicSuMucTieu")        // ✅ khớp với HistoryActivity
                     .child("chat");
+
         }
+
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override public void handleOnBackPressed() { finish(); }
@@ -126,23 +128,24 @@ public class ChatActivity extends BaseActivity {
     private void callGemini(String userText) {
         try {
             JSONObject body = new JSONObject();
+
+            // ✅ System instruction đặt riêng, không nằm trong contents
+            body.put("systemInstruction", new JSONObject()
+                    .put("parts", new JSONArray()
+                            .put(new JSONObject().put("text", SYSTEM_PROMPT))));
+
+            // ✅ contents chỉ chứa lịch sử chat + tin nhắn mới
             JSONArray contents = new JSONArray();
+            for (int i = 0; i < chatHistory.length(); i++) {
+                contents.put(chatHistory.getJSONObject(i));
+            }
             contents.put(new JSONObject()
                     .put("role", "user")
                     .put("parts", new JSONArray()
-                            .put(new JSONObject().put("text", SYSTEM_PROMPT))));
-            contents.put(new JSONObject()
-                    .put("role", "model")
-                    .put("parts", new JSONArray()
-                            .put(new JSONObject().put("text", "Được rồi, tôi sẽ chỉ tư vấn về sức khoẻ."))));
-
-            for (int i = 0; i < chatHistory.length(); i++) {
-                contents.put(chatHistory.getJSONObject(i));}
-            contents.put(new JSONObject()
-                    .put("role", "user").put("parts", new JSONArray()
                             .put(new JSONObject().put("text", userText))));
 
             body.put("contents", contents);
+
             RequestBody requestBody = RequestBody.create(
                     body.toString(),
                     MediaType.parse("application/json"));
@@ -150,19 +153,31 @@ public class ChatActivity extends BaseActivity {
                     .url(GEMINI_URL + API_KEY)
                     .addHeader("Content-Type", "application/json")
                     .post(requestBody)
-                    .build(); httpClient.newCall(request).enqueue(new Callback() {
+                    .build();
+
+            httpClient.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     runOnUiThread(() -> {
                         setTypingVisible(false);
-                        addBotMessage(" Lỗi kết nối Gemini: " + e.getMessage());
+                        addBotMessage("❌ Lỗi kết nối: " + e.getMessage());
                     });
                 }
+
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String res = response.body().string();
                     Log.d(TAG, "Gemini response: " + res);
                     runOnUiThread(() -> setTypingVisible(false));
+
+                    // ✅ Kiểm tra HTTP status trước khi parse
+                    if (!response.isSuccessful()) {
+                        Log.e(TAG, "HTTP error " + response.code() + ": " + res);
+                        runOnUiThread(() ->
+                                addBotMessage("❌ Lỗi API (" + response.code() + ")\n" + res));
+                        return;
+                    }
+
                     try {
                         JSONObject json = new JSONObject(res);
                         String reply = json
@@ -182,7 +197,7 @@ public class ChatActivity extends BaseActivity {
                     } catch (Exception e) {
                         Log.e(TAG, "Parse error: " + res, e);
                         runOnUiThread(() ->
-                                addBotMessage("⚠️ Lỗi đọc phản hồi Gemini"));
+                                addBotMessage("⚠️ Lỗi đọc phản hồi: " + e.getMessage()));
                     }
                 }
             });
@@ -191,7 +206,6 @@ public class ChatActivity extends BaseActivity {
             addBotMessage("❌ Không gửi được yêu cầu: " + e.getMessage());
         }
     }
-
     private void initAI() {
         if (API_KEY == null || API_KEY.trim().isEmpty()) {
             Toast.makeText(this, "Gemini API Key chưa được cấu hình!", Toast.LENGTH_LONG).show();

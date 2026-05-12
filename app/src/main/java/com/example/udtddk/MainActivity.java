@@ -144,7 +144,7 @@ public class MainActivity extends BaseActivity {
                     String token = task.getResult();
                     Log.e("FCM_TOKEN", "TOKEN = " + token);
 
-                    Toast.makeText(this, "Token:\n" + token, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "Token:\n" + token, Toast.LENGTH_LONG).show();
                 });
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             requestPermissions(new String[]{

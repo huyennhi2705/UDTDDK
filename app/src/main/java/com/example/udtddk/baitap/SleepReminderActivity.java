@@ -20,6 +20,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.NotificationCompat;
 
 import com.example.udtddk.R;
+import com.example.udtddk.history.HistoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -376,7 +377,7 @@ public class SleepReminderActivity extends AppCompatActivity {
                 remindH, remindM, reminderBeforeMinutes,
                 sleepHour, sleepMinute, wakeStr, hours);
 
-        Intent tapIntent = new Intent(this, SleepReminderActivity.class);
+        Intent tapIntent = new Intent(this, HistoryActivity.class);
         tapIntent.putExtra("userId", userId);
         PendingIntent tapPi = PendingIntent.getActivity(this, 0, tapIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
